@@ -1,0 +1,40 @@
+{
+    "name": "elhakim_dev/json_api_core",
+    "description": "\"Laravel-Json:API Core Package Code Base\"",
+    "type": "library",
+    "keywords": ["laravel", "package", "json-api", "core", "modules"],
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "ElhakimDev\\JsonApiCore\\": "src/",
+            "ElhakimDev\\JsonApiCore\\Examples\\": "examples/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ElhakimDev\\JsonApiCore\\Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Abd Karim Al-Khakim",
+            "email": "abdulelhakim68@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^8.0 | ^8.0.13",
+        "friendsofphp/php-cs-fixer": "^3.5"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.24",
+        "phpunit/phpunit": "^9.5"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "ElhakimDev\\JsonApiCore\\Providers\\CoreServiceProvider"
+            ]
+        }
+    }, 
+    "minimum-stability": "dev"
+}
