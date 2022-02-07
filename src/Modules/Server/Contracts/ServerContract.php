@@ -11,5 +11,11 @@ interface ServerContract {
      * @return Server
      */
     public static function getInstance(): Server;
+    
+    /**
+     * Get name of server.
+     *
+     * @return string The name of server.
+     */
     public function getName();
 }

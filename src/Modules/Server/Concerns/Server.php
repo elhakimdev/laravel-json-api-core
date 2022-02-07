@@ -5,9 +5,20 @@ namespace ElhakimDev\JsonApiCore\Modules\Server\Concerns;
 use ElhakimDev\JsonApiCore\Modules\Server\Contracts\ServerContract;
 
 abstract class Server implements ServerContract {
-
+    /**
+     * The name of server
+     *
+     * @var string
+     */
     protected $name;
+
+    /**
+     * The server uri
+     *
+     * @var string
+     */
     protected $uri;
+    
     protected $schemas = [];
     protected $namespace;
     protected $router;
