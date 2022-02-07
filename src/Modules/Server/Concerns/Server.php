@@ -1,6 +1,6 @@
 <?php
 
-namespace ElhakimDev\JsonApiCore\Modules\Server\Concers;
+namespace ElhakimDev\JsonApiCore\Modules\Server\Concerns;
 
 use ElhakimDev\JsonApiCore\Modules\Server\Contracts\ServerContract;
 

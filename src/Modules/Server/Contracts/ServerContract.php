@@ -2,7 +2,7 @@
 
 namespace ElhakimDev\JsonApiCore\Modules\Server\Contracts;
 
-use ElhakimDev\JsonApiCore\Modules\Server\Concers\Server;
+use ElhakimDev\JsonApiCore\Modules\Server\Concerns\Server;
 
 interface ServerContract {
     /**
