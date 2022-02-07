@@ -38,7 +38,27 @@ abstract class Server implements ServerContract {
         if(!isset(self::$instances[$selfClass])){
             self::$instances[$selfClass] = new static();
         }
-
+        
         return self::$instances[$selfClass];
+    }
+
+    /**
+     * Get the value of name
+     */ 
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set the value of name
+     *
+     * @return  self
+     */ 
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
     }
 }
