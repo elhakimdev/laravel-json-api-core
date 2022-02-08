@@ -74,6 +74,30 @@ abstract class Server implements ServerContract {
     }
 
     /**
+     * Get the server uri
+     *
+     * @return  string
+     */ 
+    public function getUri()
+    {
+        return $this->uri;
+    }
+
+    /**
+     * Set the server uri
+     *
+     * @param  string  $uri  The server uri
+     *
+     * @return  self
+     */ 
+    public function setUri($uri)
+    {
+        $this->uri = $uri;
+
+        return $this;
+    }
+
+    /**
      * Enabling the server.
      *
      * @return Server
@@ -151,9 +175,7 @@ abstract class Server implements ServerContract {
      */
     public function configure(callable $configuration): Server
     {
-        if(is_callable($configuration)){
-            return $configuration($this);
-        }
+        if(is_callable($configuration))return $configuration($this);
     }
 
     /**
@@ -164,8 +186,6 @@ abstract class Server implements ServerContract {
      */
     public function customize(callable $callback): Server
     {
-        if(is_callable($callback)){
-            return $callback($this);
-        }
+        if(is_callable($callback)) return $callback($this);
     }
 }

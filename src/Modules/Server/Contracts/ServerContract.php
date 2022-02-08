@@ -28,6 +28,22 @@ interface ServerContract {
     public function setName($name);
 
     /**
+     * Get the server uri
+     *
+     * @return  string
+     */ 
+    public function getUri();
+
+    /**
+     * Set the server uri
+     *
+     * @param  string  $uri  The server uri
+     *
+     * @return  self
+     */ 
+    public function setUri($uri);
+
+    /**
      * Enabling server.
      *
      * @return Server
@@ -83,5 +99,5 @@ interface ServerContract {
      * @param callable $callback The callback of customization.
      * @return Server
      */
-    public function customize(callable $callback): Server ;
+    public function customize(callable $callbacks): Server ;
 }
