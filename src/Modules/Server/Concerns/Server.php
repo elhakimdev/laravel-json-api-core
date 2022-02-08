@@ -143,6 +143,12 @@ abstract class Server implements ServerContract {
         return $this->isEnabled;
     }
 
+    /**
+     * Configure server before instantiate on registry using callback params.
+     *
+     * @param callable $configuration The callback configuration.
+     * @return Server
+     */
     public function configure(callable $configuration): Server
     {
         if(is_callable($configuration)){
@@ -150,6 +156,12 @@ abstract class Server implements ServerContract {
         }
     }
 
+    /**
+     * Helper method tha given aces to configure their server instance on registry using given callback parameter.
+     *
+     * @param callable $callback THe callback config customization.
+     * @return Server
+     */
     public function customize(callable $callback): Server
     {
         if(is_callable($callback)){

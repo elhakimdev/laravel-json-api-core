@@ -18,6 +18,13 @@ interface ServerContract {
      * @return string The name of server.
      */
     public function getName();
+
+    /**
+     * Set the name of server
+     *
+     * @param string $name
+     * @return void
+     */
     public function setName($name);
 
     /**
