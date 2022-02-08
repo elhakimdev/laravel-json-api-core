@@ -73,34 +73,76 @@ abstract class Server implements ServerContract {
         return $this;
     }
 
+    /**
+     * Enabling the server.
+     *
+     * @return Server
+     */
     public function enabled(): Server
     {
         $this->isEnabled = true;
         return $this;
     }
+
+    /**
+     * Disabling the server.
+     *
+     * @return Server
+     */
     public function disabled(): Server
     {
         $this->isEnabled = false;
         return $this;
     }
+
+    /**
+     * Activate the server.
+     *
+     * @return Server
+     */
     public function activated(): Server
     {
         $this->isActive = true;
         return $this;
     }
+
+    /**
+     * Deactivate the server.
+     *
+     * @return Server
+     */
     public function deactivated(): Server
     {
         $this->isActive = false;
         return $this;
     }
+
+    /**
+     * Check activate status of given server.
+     *
+     * @return boolean
+     */
     public function checkActiveStatus(): bool
     {
         return $this->isActive;
     }
+
+    /**
+     * Check the available server.
+     *
+     * @return boolean
+     */
     public function checkEnableStatus(): bool
     {
         return $this->isEnabled;
     }
+
+    /**
+     * A proxy method to configure the service instance.
+     *
+     * @param array|callable $configuration
+     * @return Server
+     */
     public function configure(array|callable $configuration): Server
     {
         if(is_callable($configuration)){
