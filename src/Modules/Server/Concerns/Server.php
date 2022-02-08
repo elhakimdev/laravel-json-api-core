@@ -72,4 +72,25 @@ abstract class Server implements ServerContract {
 
         return $this;
     }
+
+    public function enabled(): Server
+    {
+        $this->isEnabled = true;
+        return $this;
+    }
+    public function disabled(): Server
+    {
+        $this->isEnabled = false;
+        return $this;
+    }
+    public function activated(): Server
+    {
+        $this->isActive = true;
+        return $this;
+    }
+    public function deactivated(): Server
+    {
+        $this->isActive = false;
+        return $this;
+    }
 }

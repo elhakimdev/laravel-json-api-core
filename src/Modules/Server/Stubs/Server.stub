@@ -1,0 +1,9 @@
+<?php
+namespace ElhakimDev\JsonApiCore\Examples\Server;
+
+use ElhakimDev\JsonApiCore\Modules\Server\BaseServer;
+
+class ServerOne extends BaseServer{
+    protected $name = 'server_1';
+    protected $uri  = 'api/v1/server_1';
+}

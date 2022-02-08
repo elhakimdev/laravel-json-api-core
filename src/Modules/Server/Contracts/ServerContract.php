@@ -18,4 +18,8 @@ interface ServerContract {
      * @return string The name of server.
      */
     public function getName();
+    public function enabled(): Server;
+    public function disabled(): Server;
+    public function activated(): Server;
+    public function deactivated(): Server;
 }
