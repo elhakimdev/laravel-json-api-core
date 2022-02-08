@@ -22,4 +22,6 @@ interface ServerContract {
     public function disabled(): Server;
     public function activated(): Server;
     public function deactivated(): Server;
+    public function checkActiveStatuse(): bool;
+    public function checkEnablingStatus(): bool;
 }
