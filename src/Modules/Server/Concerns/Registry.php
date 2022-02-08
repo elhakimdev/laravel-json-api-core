@@ -38,6 +38,7 @@ abstract class Registry implements RegistryContract, ArrayAccess
      * @var array
      */
     protected $activeServers = [];
+    protected $availableServers = [];
 
     /**
      * The Registry Instance.
@@ -118,9 +119,7 @@ abstract class Registry implements RegistryContract, ArrayAccess
     protected function bindVariadicServer(ServerContract $server): void {
         $this->servers[$server->getName()] = $server;
         
-        if($server->checkActiveStatuse()){
-            $this->activeServers[$server->getName()] = $server;
-        }
+        $this->discoverStatus($server);
     }
     
     /**
@@ -156,8 +155,16 @@ abstract class Registry implements RegistryContract, ArrayAccess
     protected function bindGroupedServer($key, ServerContract $server): void {
         $this->groupedServers[$key][$server->getName()] = $server;
 
-        if($server->checkActiveStatuse()){
+        $this->discoverStatus($server);
+    }
+
+    protected function discoverStatus(ServerContract $server): void {
+        if($server->checkActiveStatus()){
             $this->activeServers[$server->getName()] = $server;
+        }
+
+        if($server->checkEnableStatus()){
+            $this->availableServers[$server->getName()] = $server;
         }
     }
 

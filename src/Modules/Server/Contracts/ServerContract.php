@@ -22,7 +22,7 @@ interface ServerContract {
     public function disabled(): Server;
     public function activated(): Server;
     public function deactivated(): Server;
-    public function checkActiveStatuse(): bool;
-    public function checkEnablingStatus(): bool;
+    public function checkActiveStatus(): bool;
+    public function checkEnableStatus(): bool;
     public function configure(callable $configuration): Server;
 }

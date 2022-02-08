@@ -93,16 +93,18 @@ abstract class Server implements ServerContract {
         $this->isActive = false;
         return $this;
     }
-    public function checkActiveStatuse(): bool
+    public function checkActiveStatus(): bool
     {
         return $this->isActive;
     }
-    public function checkEnablingStatus(): bool
+    public function checkEnableStatus(): bool
     {
         return $this->isEnabled;
     }
-    public function configure(callable $configuration): Server
+    public function configure(array|callable $configuration): Server
     {
-        return $configuration($this);
+        if(is_callable($configuration)){
+            return $configuration($this);
+        }
     }
 }
