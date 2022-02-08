@@ -158,6 +158,12 @@ abstract class Registry implements RegistryContract, ArrayAccess
         $this->discoverStatus($server);
     }
 
+    /**
+     * Auto discover server status when server has ben configured during runtime.
+     *
+     * @param ServerContract $server The server instance.
+     * @return void
+     */
     protected function discoverStatus(ServerContract $server): void {
         if($server->checkActiveStatus()){
             $this->activeServers[$server->getName()] = $server;
@@ -168,6 +174,12 @@ abstract class Registry implements RegistryContract, ArrayAccess
         }
     }
 
+    /**
+     * Get the server by its given name
+     *
+     * @param mixed $name
+     * @return Server
+     */
     public function getServer(mixed $name): Server
     {
         return $this->servers[$name];
