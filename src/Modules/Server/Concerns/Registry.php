@@ -3,11 +3,11 @@
 namespace ElhakimDev\JsonApiCore\Modules\Server\Concerns;
 
 use ArrayAccess;
-use ElhakimDev\JsonApiCore\Modules\Server\Contracts\RegistryContract;
-use ElhakimDev\JsonApiCore\Modules\Server\Contracts\ServerContract;
-use InvalidArgumentException;
 use ReflectionClass;
 use RuntimeException;
+use InvalidArgumentException;
+use ElhakimDev\JsonApiCore\Modules\Server\Contracts\ServerContract;
+use ElhakimDev\JsonApiCore\Modules\Server\Contracts\RegistryContract;
 
 abstract class Registry implements RegistryContract, ArrayAccess
 {
@@ -57,9 +57,9 @@ abstract class Registry implements RegistryContract, ArrayAccess
      * it can even consist of both [server group - multiple servers]
      * 
      * @param array|ServerContract ...$servers The array or multiple server instance that will need to pass in the registry
-     * @return void
+     * @return self
      */
-    public function loadServers(array|ServerContract ...$servers)
+    public function loadServers(array|ServerContract ...$servers) : self|null
     {
         if(func_num_args() > 0 ){
             foreach ($servers as $server) {
@@ -77,6 +77,8 @@ abstract class Registry implements RegistryContract, ArrayAccess
                     $this->handleGroupedServer($server);
                 }
             }
+
+            return $this;
         } else {
             throw new InvalidArgumentException("No parameters given, expected at least 1 parameters,  but given : [".func_num_args()."] params.");
         }
