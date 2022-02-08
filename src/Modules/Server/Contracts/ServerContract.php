@@ -65,7 +65,7 @@ interface ServerContract {
      * Configure server.
      *
      * @param callable $configuration
-     * @return Server
+
      */
     public function configure(callable $configuration): Server;
 }

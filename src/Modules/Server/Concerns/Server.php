@@ -137,13 +137,7 @@ abstract class Server implements ServerContract {
         return $this->isEnabled;
     }
 
-    /**
-     * A proxy method to configure the service instance.
-     *
-     * @param array|callable $configuration
-     * @return Server
-     */
-    public function configure(array|callable $configuration): Server
+    public function configure(callable $configuration): Server
     {
         if(is_callable($configuration)){
             return $configuration($this);
