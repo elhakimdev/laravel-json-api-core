@@ -18,6 +18,7 @@ interface ServerContract {
      * @return string The name of server.
      */
     public function getName();
+    public function setName($name);
 
     /**
      * Enabling server.
@@ -68,4 +69,12 @@ interface ServerContract {
 
      */
     public function configure(callable $configuration): Server;
+
+    /**
+     * Perform a customization callback.
+     *
+     * @param callable $callback The callback of customization.
+     * @return Server
+     */
+    public function customize(callable $callback): Server ;
 }

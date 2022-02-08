@@ -167,7 +167,7 @@ abstract class Registry implements RegistryContract, ArrayAccess
      * @return void
      */
     protected function discoverStatus(ServerContract $server): void {
-        if($server->checkActiveStatus()){
+        if($server->checkActiveStatus() && $server->checkEnableStatus()){
             $this->activeServers[$server->getName()] = $server;
         }
 

@@ -99,11 +99,17 @@ abstract class Server implements ServerContract {
      * Activate the server.
      *
      * @return Server
+     * @throws Exception If server is not enabled before activated in the registry.
      */
     public function activated(): Server
     {
-        $this->isActive = true;
-        return $this;
+        # before to activated this server, we must check is the server is enablid on registry ?
+        if($this->checkEnableStatus()){
+            $this->isActive = true;
+            return $this;
+        }
+        throw new \Exception("Error Processing Request, Server wasn't enabling, please enabled first before activate", 1);
+        
     }
 
     /**
@@ -141,6 +147,13 @@ abstract class Server implements ServerContract {
     {
         if(is_callable($configuration)){
             return $configuration($this);
+        }
+    }
+
+    public function customize(callable $callback): Server
+    {
+        if(is_callable($callback)){
+            return $callback($this);
         }
     }
 }
