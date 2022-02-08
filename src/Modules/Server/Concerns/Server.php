@@ -101,4 +101,8 @@ abstract class Server implements ServerContract {
     {
         return $this->isEnabled;
     }
+    public function configure(callable $configuration): Server
+    {
+        return $configuration($this);
+    }
 }

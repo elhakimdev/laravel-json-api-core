@@ -2,6 +2,8 @@
 
 namespace ElhakimDev\JsonApiCore\Modules\Server\Contracts;
 
+use ElhakimDev\JsonApiCore\Modules\Server\Concerns\Server;
+
 interface RegistryContract {
     /**
      * Load servers from given parameters
@@ -10,5 +12,6 @@ interface RegistryContract {
      * @return void
      */
     public function loadServers(array|ServerContract ...$servers);
+    public function getServer(mixed $name): Server;
 }
 

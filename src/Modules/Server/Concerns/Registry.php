@@ -160,5 +160,10 @@ abstract class Registry implements RegistryContract, ArrayAccess
             $this->activeServers[$server->getName()] = $server;
         }
     }
+
+    public function getServer(mixed $name): Server
+    {
+        return $this->servers[$name];
+    }
 }
 
